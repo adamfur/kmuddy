@@ -30,11 +30,14 @@
 #include <QTextCursor>
 #include <kglobalsettings.h>
 
+#include <QDebug>
+
 cInputLine::cInputLine (int sess, QString objName, QWidget *parent)
 : KLineEdit(parent), cActionBase (objName, sess)
 {
   connect (this, SIGNAL (returnPressed (const QString &)), this, SLOT (handleEnter (const QString &)));
 
+    
   //default values for selection
   ss = sl = 0;
 
@@ -213,7 +216,11 @@ void cInputLine::keyPressEvent (QKeyEvent *e)
       //if none of the following is pressed
       if ((e->modifiers() & (Qt::ShiftModifier | Qt::ControlModifier | Qt::AltModifier | Qt::MetaModifier)) == 0)
       {
-        if (e->key() == Qt::Key_Up)
+	if (e->key() == Qt::Key_Return || e->key() == Qt::Key_Enter)
+	{
+	  handleEnter(text());
+	}
+        else if (e->key() == Qt::Key_Up)
         //shifting UP in history!
         {
           if (historypos == 0)  // remember what we wrote, if anything

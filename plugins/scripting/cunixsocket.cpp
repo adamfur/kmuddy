@@ -32,6 +32,7 @@
 
 cUnixSocket::cUnixSocket (int _sess, cRunningScript *rs) : sess(_sess)
 {
+	return;
   script = rs;
   
   readnotifier = writenotifier = 0;
@@ -41,7 +42,7 @@ cUnixSocket::cUnixSocket (int _sess, cRunningScript *rs) : sess(_sess)
   connected = false;
   
   //first of all, we need a file name
-  char tmp_template[] = "/tmp/kmXXXXXX";
+  char *fname = 0;//mkstemp ("/tmp/km");
   char *dirname = mkdtemp (tmp_template);
   if (dirname != 0)  //only if it didn't fail
   {
