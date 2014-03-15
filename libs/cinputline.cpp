@@ -227,7 +227,11 @@ void cInputLine::keyPressEvent (QKeyEvent *e)
       //if none of the following is pressed
       if ((e->modifiers() & (Qt::ShiftModifier | Qt::ControlModifier | Qt::AltModifier | Qt::MetaModifier)) == 0)
       {
-        if (e->key() == Qt::Key_Up)
+        if (e->key() == Qt::Key_Return || e->key() == Qt::Key_Enter)
+        {
+          handleEnter(text());
+        }
+        else if (e->key() == Qt::Key_Up)
         //shifting UP in history!
         {
           if (historypos == 0)  // remember what we wrote, if anything
