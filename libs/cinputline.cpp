@@ -224,6 +224,10 @@ void cInputLine::keyPressEvent (QKeyEvent *e)
   {
     if (e->type() == QEvent::KeyPress)
     {
+      if ((e->modifiers() == (Qt::ControlModifier)) && e->key() == Qt::Key_C && selectedText().length() == 0)
+      {
+        setText("");
+      }
       //if none of the following is pressed
       if ((e->modifiers() & (Qt::ShiftModifier | Qt::ControlModifier | Qt::AltModifier | Qt::MetaModifier)) == 0)
       {
