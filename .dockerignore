@@ -1,0 +1,10 @@
+**/.git
+Client
+**/CMakeFiles
+*.sh
+*.so
+**/CMakeCache.txt
+**/.vscode
+**.bin
+**.md
+**.yml
