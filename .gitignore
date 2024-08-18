@@ -10,3 +10,4 @@ CMakeCache.txt
 .cache
 .idea
 /cmake-build*
+**.deb

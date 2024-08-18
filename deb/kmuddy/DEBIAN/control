@@ -1,0 +1,9 @@
+Package: kmuddy
+Version: 1.0-1
+Architecture: amd64
+Maintainer: Adam Futenbach <???@gmail.com>
+Installed-Size: 5672
+Section: Games
+Priority: optional
+Description: MUD Client for KDE4
+ KMuddy is a MUD client for KDE4.
